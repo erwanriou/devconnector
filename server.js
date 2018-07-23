@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // DB config
-const db = require('./config/keys').db
+const db = require('./config/keys').keys
 
 // Connect to Mongodb
 mongoose
