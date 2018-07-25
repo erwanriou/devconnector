@@ -4,6 +4,7 @@ const passport = require('passport')
 
 const User = require('../../models/User')
 const Profile = require('../../models/Profile')
+const validateProfileInput = require('../../validation/profile');
 
 const router = express.Router()
 
@@ -13,6 +14,7 @@ const router = express.Router()
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   const errors = {}
   Profile.findOne({ user: req.user.id })
+    .populate('user', ['name', 'avatar'])
     .then(profile => {
       if (!profile) {
         errors.noprofile = 'There is no profile for this user'
@@ -27,6 +29,11 @@ router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
 // @desc   Create or edit user profile
 // @access Private
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
+  const { errors, isValid } = validateProfileInput(req.body)
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
   //Get fields
   const profileFields = {}
   profileFields.user = req.user.id
@@ -39,7 +46,7 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
   if (req.body.githubusername) profileFields.githubusername = req.body.githubusername
   // Skills - Split into an array
   if (typeof req.body.skills !== 'undefined') {
-    profileFields.skills = req.body.Skills.split(',')
+    profileFields.skills = req.body.skills.split(',')
   }
   // Social
   profileFields.social = {}
@@ -70,7 +77,6 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
       })
     }
   })
-
 })
 
 module.exports = router
