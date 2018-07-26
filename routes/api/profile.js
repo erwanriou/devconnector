@@ -86,26 +86,13 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     return res.status(400).json(errors)
   }
   //Get fields
-  const profileFields = {}
-  profileFields.user = req.user.id
-  if (req.body.handle) profileFields.handle = req.body.handle
-  if (req.body.company) profileFields.company = req.body.company
-  if (req.body.website) profileFields.website = req.body.website
-  if (req.body.location) profileFields.location = req.body.location
-  if (req.body.bio) profileFields.bio = req.body.bio
-  if (req.body.status) profileFields.status = req.body.status
-  if (req.body.githubusername) profileFields.githubusername = req.body.githubusername
-  // Skills - Split into an array
-  if (typeof req.body.skills !== 'undefined') {
-    profileFields.skills = req.body.skills.split(',')
+  const { skills, youtube, twitter, facebook, linkedin, instagram } = req.body
+  const profileFields = {
+    ...req.body,
+    user: req.user.id,
+    skills: skills.split(','),
+    social: { youtube, twitter, facebook, linkedin, instagram },
   }
-  // Social
-  profileFields.social = {}
-  if (req.body.youtube) profileFields.social.youtube = req.body.youtube
-  if (req.body.twitter) profileFields.social.twitter = req.body.twitter
-  if (req.body.facebook) profileFields.social.facebook = req.body.facebook
-  if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin
-  if (req.body.instagram) profileFields.social.instagram = req.body.instagram
 
   Profile.findOne({ user: req.user.id }).then(profile => {
     if (profile) {
@@ -128,6 +115,33 @@ router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
       })
     }
   })
+})
+
+// @route  POST api/profile/experience
+// @desc   Add experience to profile
+// @access Private
+router.post('/experience', passport.authenticate('jwt', {session: false}), (req, res) => {
+  //const { errors, isValid } = validateExperienceInput(req.body)
+  // Check validation
+  // if (!isValid) {
+  //   return res.status(400).json(errors)
+  // }
+  Profile.findOne({ user: req.user.id})
+    .then(profile => {
+      const newExp = {
+        title: req.body.title,
+        company: req.body.company,
+        location: req.body.location,
+        from: req.body.from,
+        to: req.body.to,
+        current: req.body.current,
+        description: req.body.description,
+      }
+
+      // Add to exp array
+      profile.experience.unshift(newExp)
+      profile.save().then(profile => res.json(profile))
+    })
 })
 
 module.exports = router
