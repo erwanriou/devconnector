@@ -15,7 +15,9 @@ DEVCONNECTOR - Express/MongoDB/React/Redux
 * in the config folder root - touch keys.js
 * then add the folowing
 
-```const keys = {
+```
+
+const keys = {
   user : '<user>',
   password : ''<password>',
   secret: ''<secret>',
