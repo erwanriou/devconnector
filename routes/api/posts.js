@@ -28,11 +28,37 @@ router.post('/',  passport.authenticate('jwt', {session: false}), (req, res) => 
     .catch(err => res.status(404).json(err))
 })
 
+// @route  POST api/posts/comment/:id
+// @desc   Add comment to post
+// @access Private
+router.post('/comment/:id',  passport.authenticate('jwt', {session: false}), (req, res) => {
+  const { errors, isValid } = validatePostInput(req.body)
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
+  Post
+    .findById(req.params.id)
+    .then(post => {
+      const newComment = {
+        ...req.body,
+        user: req.user.id,
+      }
+      post.comments
+        .unshift(newComment)
+      post
+        .save()
+        .then(post => res.json(post))
+    })
+    .catch(err => res.status(404).json(err))
+})
+
 // @route  GET api/posts
 // @desc   Get post
 // @access Public
 router.get('/', (req, res) => {
-  Post.find()
+  Post
+    .find()
     .sort({ date: -1 })
     .then(posts =>res.json(posts))
     .catch(err => res.status(404).json({ posts: 'no posts found'}))
@@ -42,7 +68,8 @@ router.get('/', (req, res) => {
 // @desc   Get post by id
 // @access Public
 router.get('/:id', (req, res) => {
-  Post.findById(req.params.id)
+  Post
+    .findById(req.params.id)
     .then(post =>res.json(post))
     .catch(err => res.status(404).json({ post: 'no post found with that id'}))
 })
@@ -59,6 +86,25 @@ router.delete('/:id',  passport.authenticate('jwt', {session: false}), (req, res
         : res.status(200).json({ post: 'post deleted' })
     })
     .catch(err => res.status(404).json({ post: 'It had a problem deleting the post' }))
+})
+
+// @route  DELETE api/posts/comment/:id/:comment_id
+// @desc   delete the coment by id in post by id
+// @access Private
+router.delete('/comment/:id/:comment_id',  passport.authenticate('jwt', {session: false}), (req, res) => {
+  Post
+    .findById(req.params.id)
+    .then(post => {
+      const index = post.comments.findIndex( comment => comment._id.toString() === req.params.comment_id)
+      index === -1
+        ? res.status(401).json({ post: 'comment not found' })
+        : post.comments.remove({ _id: req.params.comment_id })
+
+      post
+        .save()
+        .then(post => res.status(200).json({ post: 'comment deleted' }))
+    })
+    .catch(err => res.status(404).json({ post: 'It had a problem deleting the comment' }))
 })
 
 // @route  POST api/posts/like/:id
