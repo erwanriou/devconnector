@@ -61,5 +61,22 @@ router.delete('/:id',  passport.authenticate('jwt', {session: false}), (req, res
     .catch(err => res.status(404).json({ post: 'It had a problem deleting the post' }))
 })
 
+// @route  POST api/posts/like/:id
+// @desc   Like or Unlike post
+// @access Private
+router.post('/like/:id',  passport.authenticate('jwt', {session: false}), (req, res) => {
+  Post
+    .findById(req.params.id)
+    .then(post => {
+      const indexOfUser = post.likes.findIndex(like => like.user.toString() === req.user.id);
+      indexOfUser === -1
+        ? post.likes.unshift({user: req.user.id})
+        : post.likes.splice(indexOfUser, 1);
+      post
+        .save()
+        .then(post => res.json(post));
+    })
+    .catch(err => res.status(404).json({ post: 'It had a problem liking the post' }))
+})
 
 module.exports = router
