@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
   render() {
     return (
       <div className='navbar'>
         <div className='mainmenu container'>
-          <a href="">DevConnector</a>
-          <a href="">Developers</a>
+          <Link to='/'>DevConnector</Link>
+          <Link to='/profile'>Developers</Link>
         </div>
         <div className='usermenu container'>
-          <a href="">Sign Up</a>
-          <a href="">Login</a>
+          <Link to='/register'>Sign Up</Link>
+          <Link to='/login'>Login</Link>
         </div>
       </div>
     )

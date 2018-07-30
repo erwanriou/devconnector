@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Landing extends React.Component {
   render() {
@@ -9,12 +10,11 @@ class Landing extends React.Component {
             <h1>Developer Connector</h1>
             <h2>Create a developer profile/portfolio, share posts and get help from other developers</h2>
             <div className="register">
-              <button className='greenbtn'>Sign Up</button>
-              <button className='whitebtn'>Login</button>
+              <Link className='greenbtn' to='/register'>Sign Up</Link>
+              <Link className='whitebtn' to='/login'>Login</Link>
             </div>
           </div>
         </div>
-
       </div>
     )
   }
