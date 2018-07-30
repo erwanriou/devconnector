@@ -1,0 +1,54 @@
+/* General */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+/* NavBar */
+.navbar {
+  position: fixed;
+  display: flex;
+  z-index: 1000;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #343a40;
+  height: 3rem;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+
+/* Landing */
+.landing {
+  background: url('../utils/images/showcase.jpg') no-repeat;
+  filter: brightness(40%);
+  height: 1000px;
+}
+
+.landing p {
+  color: white;
+}
+
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #343a40;
+  height: 10rem;
+}
+
+footer p {
+  text-align: center;
+  color: white;
+}

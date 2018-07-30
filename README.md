@@ -41,7 +41,7 @@ exports.keys = keys
 
 * Download the application
 * run the command npm install at the root of the project
-* Launch the backend server with npm start
+* Launch both servers with 'npm run dev'
 * You are now running the application
 
 ## How it Work
