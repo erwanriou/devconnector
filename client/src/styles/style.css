@@ -3,7 +3,6 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
 }
-
 .container {
   margin: 0 auto;
   max-width: 1200px;
@@ -19,7 +18,6 @@ body {
   background-color: #343a40;
   height: 3rem;
 }
-
 .navbar a {
   color: white;
   font-size: 1rem;
@@ -29,16 +27,56 @@ body {
 
 /* Landing */
 .landing {
+  position: relative;
+  z-index: 1;
   background: url('../utils/images/showcase.jpg') no-repeat;
-  filter: brightness(40%);
   height: 1000px;
 }
-
-.landing p {
+.dark {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.landing h1, .landing h2, .landing .register {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
-
-
+.landing h1 {
+  padding-top: 10rem;
+  font-size: 5rem;
+}
+.landing h2 {
+  padding: 3rem;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.greenbtn, .whitebtn {
+  width: 8rem;
+  padding: 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.greenbtn {
+  background-color: #17a2b8;
+  color: white;
+}
+.greenbtn:hover {
+  background-color: #138496;
+}
+.whitebtn:hover {
+  background-color: #c1c1c1;
+}
 /* Footer */
 footer {
   display: flex;
@@ -47,7 +85,6 @@ footer {
   background-color: #343a40;
   height: 10rem;
 }
-
 footer p {
   text-align: center;
   color: white;
