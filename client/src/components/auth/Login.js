@@ -1,7 +1,11 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
-import Card from  './Card'
+import axios from 'axios'
+import classnames from 'classnames'
 import * as FontAwesome from 'react-icons/fa'
+
+import Card from  './Card'
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -18,11 +22,15 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const User = {
+    const user = {
       email: this.state.email,
       password: this.state.password,
     }
-    console.log(User);
+    axios.post('/api/users/login', user)
+      .then(res => console.log(res.data))
+      .catch(err => this.setState({
+        errors: err.response.data
+      }))
   }
 
   handleQueryInput(e) {
@@ -33,7 +41,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, password } = this.state
+    const { email, password, errors } = this.state
     return (
       <div className="container auth">
         <h1>Login</h1>
@@ -41,6 +49,9 @@ class Login extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className='field'>
             <input
+              className={classnames('', {
+                'invalid': errors.email
+              })}
               type='email'
               name='email'
               value={email}
@@ -54,8 +65,12 @@ class Login extends React.Component {
               <Card title="Required Email" />
             </Popup>
           </div>
+          { errors.email && (<p>{errors.email}</p>) }
           <div className='field'>
             <input
+              className={classnames('', {
+                'invalid': errors.password
+              })}
               type='password'
               name='password'
               value={password}
@@ -69,6 +84,7 @@ class Login extends React.Component {
               <Card title="Required Password" />
             </Popup>
           </div>
+          { errors.password && (<p>{errors.password}</p>) }
           <button
             type='submit'
             className='submitbtn'>

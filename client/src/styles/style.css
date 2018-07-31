@@ -153,6 +153,16 @@ body {
   outline:none;
   border: 1px solid #8d8def;
 }
+
+.auth form .invalid{
+  outline:none;
+  border: 2px solid #d63c1b;
+}
+.auth form p {
+  color: red;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
 /* Footer */
 footer {
   z-index: 10;
