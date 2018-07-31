@@ -127,8 +127,21 @@ body {
   right: 7%;
   bottom: 40%;
 }
-.register form input:after {
-
+.popup-content {
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+.card {
+  padding: 1rem;
+}
+.card .header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+  color: #17a2b8;
+}
+.card .content {
+  width: 100%;
+  padding-top: 1rem;
 }
 .register form button {
   width: 22rem;

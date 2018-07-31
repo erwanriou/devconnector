@@ -1,52 +1,118 @@
 import React from 'react'
+import Popup from "reactjs-popup"
 import * as FontAwesome from 'react-icons/fa'
 
+const Card = ({ title }) => (
+  <div className="card">
+    <div className="header">{title}</div>
+    { title === 'Required Name' &&
+       <div className="content">
+          Your First and Last name together. This field is required
+       </div> }
+    { title === 'Required Email' &&
+      <div className="content">
+        This site uses Gravatar so if you want a profile image, use a Gravatar email
+      </div> }
+    { title === 'Required Password' &&
+      <div className="content">
+        The password should include upper-case and lower-case letters and one or more numerical digits. It should be at least 6 caraters lenght
+      </div> }
+  </div>
+)
 
 class Register extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
+      errors: {},
+    }
+    this.handleQueryInput = this.handleQueryInput.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+    }
+    console.log(newUser);
+  }
+
+  handleQueryInput(e) {
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
+    const { name, email, password, password2 } = this.state
     return (
       <div className="container register">
         <h1>Sign Up</h1>
         <h2>Create your DevConnector account</h2>
-
-
-        <form action='post'>
+        <form onSubmit={this.handleSubmit}>
           <div className='field'>
             <input
               type='text'
               name='name'
-              required
+              value={name}
+              onChange={this.handleQueryInput}
               placeholder='Your Name'
             />
-            <FontAwesome.FaQuestionCircle className='questionicon'/>
+            <Popup
+              trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
+              position="right center"
+              on="hover">
+              <Card title="Required Name" />
+            </Popup>
           </div>
           <div className='field'>
             <input
               type='email'
               name='email'
-              required
+              value={email}
+              onChange={this.handleQueryInput}
               placeholder='Your Email'
             />
-            <FontAwesome.FaQuestionCircle className='questionicon'/>
+            <Popup
+              trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
+              position="right center"
+              on="hover">
+              <Card title="Required Email" />
+            </Popup>
           </div>
-          <p>This site uses Gravatar so if you want a profile image, use a Gravatar email</p>
           <div className='field'>
             <input
               type='password'
               name='password'
-              required
+              value={password}
+              onChange={this.handleQueryInput}
               placeholder='Your password'
             />
-            <FontAwesome.FaQuestionCircle className='questionicon'/>
+            <Popup
+              trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
+              position="right center"
+              on="hover">
+              <Card title="Required Password" />
+            </Popup>
           </div>
           <div className='field'>
             <input
               type='password'
-              name='password'
-              required
+              name='password2'
+              value={password2}
+              onChange={this.handleQueryInput}
               placeholder='Confirm your password'
             />
-            <FontAwesome.FaQuestionCircle className='questionicon'/>
           </div>
           <button
             type='submit'
