@@ -7,10 +7,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { BrowserRouter as Router } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 
-import reducer from './reducers'
+import rooReducer from './reducers'
 import middleware from './middleware'
 
-const store = createStore(reducer, composeWithDevTools(middleware));
+const store = createStore(rooReducer, composeWithDevTools(middleware));
 
 ReactDOM.render(
   <Provider store={store}>
