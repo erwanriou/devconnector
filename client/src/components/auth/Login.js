@@ -1,9 +1,12 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
-import axios from 'axios'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import { withRouter } from 'react-router-dom'
 import * as FontAwesome from 'react-icons/fa'
 
+import { connect } from 'react-redux'
+import { loginUser } from '../../actions/authActions'
 import Card from  './Card'
 
 
@@ -20,17 +23,24 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidUpdate(prevProps) {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-    const user = {
+    const userData = {
       email: this.state.email,
       password: this.state.password,
     }
-    axios.post('/api/users/login', user)
-      .then(res => console.log(res.data))
-      .catch(err => this.setState({
-        errors: err.response.data
-      }))
+
+    this.props.loginUser(userData)
   }
 
   handleQueryInput(e) {
@@ -96,4 +106,17 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+})
+
+export default withRouter(
+  connect(mapStateToProps, { loginUser })(Login)
+)

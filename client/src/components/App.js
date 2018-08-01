@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react'
 import { Route } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+import { loginUser } from '../actions/authActions'
+
 import NavBar from './layout/Navbar'
 import Landing from './layout/Landing'
 import Register from './auth/Register'
@@ -10,7 +13,9 @@ import Footer from './layout/Footer'
 import '../styles/reset.css'
 import '../styles/style.css'
 
+
 class App extends React.Component {
+
   render() {
     return (
       <Fragment>
