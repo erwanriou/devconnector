@@ -1,21 +1,63 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
+//redux
+import { connect } from 'react-redux'
+import { logoutUser } from '../../actions/authActions'
 
 class NavBar extends React.Component {
+
+  handleLogout(e) {
+    e.preventDefault()
+    this.props.logoutUser()
+  }
   render() {
+    const  { isAuthenticated, user } = this.props.auth
+
+    const authLinks = (
+      <div className='usermenu container'>
+        <img
+          src={user.avatar}
+          alt={user.name}
+          style={{ width: '25px', marginRight: '5px'}}
+          title='You must have a Gravatar connect to you email to display an image'
+        />
+        <Link
+          to='/'
+          onClick={this.handleLogout.bind(this)}>
+          Logout
+        </Link>
+      </div>
+    )
+
+    const guestLinks = (
+      <div className='usermenu container'>
+        <Link to='/register'>Sign Up</Link>
+        <Link to='/login'>Login</Link>
+      </div>
+    )
+
     return (
       <div className='navbar'>
         <div className='mainmenu container'>
           <Link to='/'>DevConnector</Link>
           <Link to='/profile'>Developers</Link>
         </div>
-        <div className='usermenu container'>
-          <Link to='/register'>Sign Up</Link>
-          <Link to='/login'>Login</Link>
-        </div>
+        { isAuthenticated
+            ? authLinks
+            : guestLinks }
       </div>
     )
   }
 }
 
-export default NavBar
+NavBar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+})
+
+export default withRouter(connect(mapStateToProps, { logoutUser })(NavBar))

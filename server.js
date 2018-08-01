@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(passport.initialize())
 
+
 // DB config
 const db = require('./config/keys').keys
 

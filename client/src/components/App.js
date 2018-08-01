@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { Route } from 'react-router-dom'
 
-
 import NavBar from './layout/Navbar'
 import Landing from './layout/Landing'
 import Register from './auth/Register'

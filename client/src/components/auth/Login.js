@@ -23,10 +23,16 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard')
+    }
+  }
+
   componentDidUpdate(prevProps) {
     const { isAuthenticated } = this.props.auth;
     if (isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push('/dashboard');
     }
     if (prevProps.errors !== this.props.errors) {
       this.setState({ errors: this.props.errors });

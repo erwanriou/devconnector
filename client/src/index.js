@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker'
 import jwt_decode from 'jwt-decode'
 
 import setAuthToken from './utils/setAuthToken'
-import { setCurrentUser } from './actions/authActions'
+import { setCurrentUser, logoutUser } from './actions/authActions'
 
 import rooReducer from './reducers'
 import middleware from './middleware'
@@ -23,6 +23,13 @@ if (localStorage.jwtToken) {
   setAuthToken(localToken)
   const decoded = jwt_decode(localToken)
   store.dispatch(setCurrentUser(decoded))
+
+  const currentTime = Date.now()/1000
+  if (decoded.exp < currentTime) {
+    store.dispatch(logoutUser())
+    //TODO CLear current profile
+    window.location.href = '/login'
+  }
 }
 
 ReactDOM.render(
