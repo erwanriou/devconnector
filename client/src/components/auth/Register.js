@@ -27,9 +27,9 @@ class Register extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-   if (prevProps.errors !== this.props.errors) {
+    if (prevProps.errors !== this.props.errors) {
     this.setState({ errors: this.props.errors });
-   }
+    }
   }
 
   handleSubmit(e) {
