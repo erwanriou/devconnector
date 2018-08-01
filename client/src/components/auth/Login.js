@@ -88,7 +88,7 @@ class Login extends React.Component {
           <button
             type='submit'
             className='submitbtn'>
-            Create your account
+            Login
           </button>
         </form>
       </div>

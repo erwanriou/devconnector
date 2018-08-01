@@ -62,7 +62,6 @@ class Register extends React.Component {
               onChange={this.handleQueryInput}
               placeholder='Your Name'
             />
-
             <Popup
               trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
               position="right center"
@@ -101,7 +100,6 @@ class Register extends React.Component {
               onChange={this.handleQueryInput}
               placeholder='Your password'
             />
-
             <Popup
               trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
               position="right center"
@@ -121,7 +119,6 @@ class Register extends React.Component {
               onChange={this.handleQueryInput}
               placeholder='Confirm your password'
             />
-
           </div>
           { errors.password2 && (<p>{errors.password2}</p>) }
           <button
