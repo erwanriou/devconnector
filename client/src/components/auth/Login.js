@@ -1,14 +1,10 @@
 import React from 'react'
-import Popup from 'reactjs-popup'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { withRouter } from 'react-router-dom'
-import * as FontAwesome from 'react-icons/fa'
 
 import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
-import Card from  './Card'
-
+import TextFieldGroup from '../common/TextFieldGroup'
 
 class Login extends React.Component {
   constructor(props) {
@@ -63,44 +59,24 @@ class Login extends React.Component {
         <h1>Login</h1>
         <h2>Sign in to your DevConnector account</h2>
         <form onSubmit={this.handleSubmit}>
-          <div className='field'>
-            <input
-              className={classnames('', {
-                'invalid': errors.email
-              })}
-              type='email'
-              name='email'
-              value={email}
-              onChange={this.handleQueryInput}
-              placeholder='Your Email'
-            />
-            <Popup
-              trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
-              position="right center"
-              on="hover">
-              <Card title="Required Email" />
-            </Popup>
-          </div>
-          { errors.email && (<p>{errors.email}</p>) }
-          <div className='field'>
-            <input
-              className={classnames('', {
-                'invalid': errors.password
-              })}
-              type='password'
-              name='password'
-              value={password}
-              onChange={this.handleQueryInput}
-              placeholder='Your password'
-            />
-            <Popup
-              trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
-              position="right center"
-              on="hover">
-              <Card title="Required Password" />
-            </Popup>
-          </div>
-          { errors.password && (<p>{errors.password}</p>) }
+          <TextFieldGroup
+            placeholder='Your Email'
+            title='Required Email'
+            name='email'
+            type='email'
+            value={email}
+            onChange={this.handleQueryInput}
+            error={errors.email}
+          />
+          <TextFieldGroup
+            placeholder='Your password'
+            title='Required Password'
+            name='password'
+            type='password'
+            value={password}
+            onChange={this.handleQueryInput}
+            error={errors.password}
+          />
           <button
             type='submit'
             className='submitbtn'>

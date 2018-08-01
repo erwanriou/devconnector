@@ -23,11 +23,12 @@ if (localStorage.jwtToken) {
   setAuthToken(localToken)
   const decoded = jwt_decode(localToken)
   store.dispatch(setCurrentUser(decoded))
-
+  
+  // Automatic logout
   const currentTime = Date.now()/1000
   if (decoded.exp < currentTime) {
     store.dispatch(logoutUser())
-    //TODO CLear current profile
+    store.dispatch(clearCurrentProfile())
     window.location.href = '/login'
   }
 }

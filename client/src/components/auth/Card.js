@@ -15,6 +15,10 @@ const Card = ({ title }) => (
       <div className="content">
         The password should include upper-case and lower-case letters and one or more numerical digits. It should be at least 6 caraters lenght
       </div> }
+    { title === 'Confirm Password' &&
+      <div className="content">
+        The confirm password field must match the password field to be approved
+      </div> }
   </div>
 )
 

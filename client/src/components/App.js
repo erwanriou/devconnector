@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import NavBar from './layout/Navbar'
 import Landing from './layout/Landing'
 import Register from './auth/Register'
+import Dashboard from './dashboard/Dashboard'
 import Login from './auth/Login'
 import Footer from './layout/Footer'
 
@@ -19,6 +20,7 @@ class App extends React.Component {
         <Route exact path='/' component={Landing}/>
         <Route exact path='/register' component={Register}/>
         <Route exact path='/login' component={Login}/>
+        <Route exact path='/dashboard' component={Dashboard}/>
         <Footer />
       </Fragment>
     )
