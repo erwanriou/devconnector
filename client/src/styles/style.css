@@ -32,7 +32,7 @@ body {
   border-radius: 1rem;
 }
 
-/* Landing */
+/* Landing && General*/
 .landing {
   position: relative;
   z-index: 1;
@@ -170,6 +170,47 @@ body {
   font-size: 1rem;
   padding: 0.5rem 1rem;
 }
+/* Profile*/
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard h1 {
+  padding-top: 7rem;
+  font-size: 5rem;
+  font-weight: 400;
+  text-align: center;
+}
+.dashboard h2 {
+  padding-top: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #17a2b8;
+}
+
+.dashboard p {
+  padding-top: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.dashboard .btn {
+  display: flex;
+  justify-content: center;
+  width: 12rem;
+  padding: 1rem;
+  margin: 3rem auto;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #17a2b8;
+  color: white;
+}
+
 /* Footer */
 footer {
   z-index: 10;
