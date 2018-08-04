@@ -1,13 +1,30 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import { getCurrentProfile } from '../../actions/profileActions'
-import Spinner from '../common/Spinner'
+import TextFieldGroup from '../common/TextFieldGroup'
 
 class CreateProfile extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      displaySocialInputs: false,
+      handle: '',
+      company: '',
+      website:'',
+      location: ''
+      status: '',
+      skills: '',
+      githubusername: '',
+      bio: '',
+      twitter: '',
+      facebook: '',
+      linkedin: '',
+      youtube: '',
+      instagram: ''
+      errors: {},
+    }
+  }
   render() {
     return (
       <div className="createprofile container">
@@ -20,7 +37,6 @@ class CreateProfile extends React.Component {
 CreateProfile.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -28,4 +44,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 })
 
-export default connect(mapStateToProps, { getCurrentProfile })(CreateProfile)
+export default connect(mapStateToProps)(CreateProfile)
