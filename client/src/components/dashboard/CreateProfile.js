@@ -12,7 +12,7 @@ class CreateProfile extends React.Component {
       handle: '',
       company: '',
       website:'',
-      location: ''
+      location: '',
       status: '',
       skills: '',
       githubusername: '',
@@ -21,14 +21,49 @@ class CreateProfile extends React.Component {
       facebook: '',
       linkedin: '',
       youtube: '',
-      instagram: ''
+      instagram: '',
       errors: {},
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const newProfile = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+    }
+    // this.props.registerProfile(
+    //   newProfile,
+    //   this.props.history
+    // )
+  }
+
   render() {
+    const { errors, company } = this.state
     return (
       <div className="createprofile container">
-        Create Profile
+        <h1>Create your Profile</h1>
+        <h2>Let's get some informations to make your profile stand out!</h2>
+        <form onSubmit={this.handleSubmit}>
+          <TextFieldGroup
+            placeholder='Your company'
+            title='Required company'
+            name='company'
+            value={company}
+            onChange={this.handleQueryInput}
+            error={errors.company}
+          />
+          <button
+            type='submit'
+            className='submitbtn'>
+            Create your profile
+          </button>
+        </form>
       </div>
     )
   }
