@@ -2,22 +2,26 @@ import React, {Fragment } from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-const TextAreaFieldGroup = ({
+const InputGroup = ({
   name,
   placeholder,
+  type,
   value,
   error,
+  icons,
   onChange,
 }) => {
   return (
     <Fragment>
       <div className='field'>
-        <textarea
+        <i className={icons} />
+        <input
           className={classnames('', {
             'invalid': error
           })}
           name={name}
           value={value}
+          type={type}
           onChange={onChange}
           placeholder={placeholder}
         />
@@ -27,12 +31,17 @@ const TextAreaFieldGroup = ({
   )
 }
 
-TextAreaFieldGroup.proptypes = {
+InputGroup.proptypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  icon: PropTypes.string,
+  type: PropTypes.string.isRequired,
+}
+InputGroup.defaultProps = {
+  type: 'text'
 }
 
-export default TextAreaFieldGroup
+export default InputGroup

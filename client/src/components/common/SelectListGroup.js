@@ -2,37 +2,44 @@ import React, {Fragment } from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-const TextAreaFieldGroup = ({
+const SelectListGroup = ({
   name,
-  placeholder,
   value,
   error,
   onChange,
+  options,
 }) => {
+
+  const selectOptions = options.map(option => (
+    <option key={option.label} value={option.value}>
+      {option.label}
+    </option>
+  ))
+
   return (
     <Fragment>
       <div className='field'>
-        <textarea
+        <select
           className={classnames('', {
             'invalid': error
           })}
           name={name}
           value={value}
-          onChange={onChange}
-          placeholder={placeholder}
-        />
+          onChange={onChange}>
+          {selectOptions}
+        </select>
       </div>
       { error && (<p>{error}</p>) }
     </Fragment>
   )
 }
 
-TextAreaFieldGroup.proptypes = {
+SelectListGroup.proptypes = {
   name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  options: PropTypes.array.isRequired,
 }
 
-export default TextAreaFieldGroup
+export default SelectListGroup

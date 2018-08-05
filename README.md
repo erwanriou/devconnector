@@ -11,9 +11,11 @@ DEVCONNECTOR - Express/MongoDB/React/Redux
 
 ## Create your keys.js
 
+* clone the repository
 * you first need to create a file keys.js that you will put in the config folder
-* in the config folder root - touch keys.js
-* then add the folowing
+* cd config
+* touch keys.js
+* then add the folowing content
 
 ```
 
@@ -39,9 +41,11 @@ exports.keys = keys
 
 ## Initiate the project
 
-* Download the application
-* run the command npm install at the root of the project
-* Launch both servers with 'npm run dev'
+* npm install
+* npm i --save concurrently
+* cd client
+* npm install
+* Launch both servers with 'npm run dev' on repository root
 * You are now running the application
 
 ## How it Work
@@ -58,7 +62,11 @@ exports.keys = keys
 * we use several middleware as bodyParser and passport to create private route and manage auth.
 
 ## Middleware
-* This section is coming soon!
+* Middleware is managed by Redux. it is taking care of the main property as users, profiles and post. Its ensure each actions made that impact these property are dispatched and updating the cycle. Fetching each element properly from the backend.
 
 ## Front End
-* This section is coming soon!
+* The frontend is made with React and component organization. We devide theses component in various categories
+* layout component are the ones displayed on start. On most, you can considere them as statical component and they are public
+* common component aren't displaying any UI but are helping other component to generate other UI component easelsy.
+* Auth component regroup all component that are needed about authentification
+* Dashboard component regroup all component about the dashboard profile of each users
