@@ -171,7 +171,15 @@ body {
   padding: 0.5rem 1rem;
 }
 /* Create Profile*/
-
+.flexcolumn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.flexlign {
+  display: flex;
+  align-items: center;
+}
 .createprofile {
   display: flex;
   flex-direction: column;
@@ -193,7 +201,6 @@ body {
 .createprofile form {
   position: relative;
   display: flex;
-  align-items: center;
   flex-direction: column;
   margin: 1rem 0 5rem 0;
 }
@@ -208,7 +215,29 @@ body {
   border-radius: 1rem;
   margin: 0.5rem;
 }
-.createprofile form button {
+.createprofile form select {
+  width: 22rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: .5px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+.createprofile form textarea {
+  width: 43.5rem;
+  height: 10rem;
+  padding: 1rem;
+  border: .5px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+.createprofile p {
+  padding: 1rem;
+}
+.createprofile form textarea::-webkit-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+}
+.createprofile form .submitbtn {
   width: 22rem;
   height: 3rem;
   padding: 0 1rem;
@@ -218,13 +247,17 @@ body {
   background-color: #17a2b8;
   color: white;
 }
-.createprofile form input:focus{
+.createprofile form input:focus, .createprofile form select:focus, .createprofile form textarea:focus {
   outline:none;
   border: 1px solid #8d8def;
 }
-.createprofile form .invalid{
+.createprofile form .invalid {
   outline:none;
   border: 2px solid #d63c1b;
+}
+.field i {
+  font-size: 1rem;
+  color: #17a2b8;
 }
 /* Profile*/
 .dashboard {
