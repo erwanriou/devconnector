@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react'
 import { PropTypes } from 'prop-types'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import TextFieldGroup from '../common/TextFieldGroup'
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
 import SelectListGroup from '../common/SelectListGroup'
 import InputGroup from '../common/InputGroup'
+import { createProfile } from '../../actions/profileActions'
 
 class CreateProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      test: [],
       displaySocialInputs: false,
       handle: '',
       company: '',
@@ -34,18 +35,33 @@ class CreateProfile extends React.Component {
     this.handleToggle = this.handleToggle.bind(this)
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+    this.setState({ errors: this.props.errors });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-    const newProfile = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2,
+    const profileData = {
+      handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
+      location: this.state.location,
+      status: this.state.status,
+      skills: this.state.skills,
+      githubusername: this.state.githubusername,
+      bio: this.state.bio,
+      twitter: this.state.twitter,
+      facebook: this.state.facebook,
+      linkedin: this.state.linkedin,
+      youtube: this.state.youtube,
+      instagram: this.state.instagram,
     }
-    // this.props.registerProfile(
-    //   newProfile,
-    //   this.props.history
-    // )
+    this.props.createProfile(
+      profileData,
+      this.props.history
+    )
   }
 
   handleQueryInput(e) {
@@ -66,7 +82,7 @@ class CreateProfile extends React.Component {
       errors, handle, status, company,
       website, skills, githubusername,
       bio, displaySocialInputs, twitter,
-      linkedin, facebook, instagram, youtube 
+      linkedin, facebook, instagram, youtube
     } = this.state
     const options = [
       { label: '* Select Professional Status', value: 0 },
@@ -96,7 +112,7 @@ class CreateProfile extends React.Component {
             icons='fab fa-facebook'
             onChange={this.handleQueryInput}
             error={errors.facebook}
-          />
+          />createProfile
         </div>
         <div className="flexcolumn">
           <InputGroup
@@ -222,10 +238,10 @@ CreateProfile.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
 }
-
+createProfile
 const mapStateToProps = (state) => ({
   profile: state.profile,
   auth: state.auth,
 })
 
-export default connect(mapStateToProps)(CreateProfile)
+export default withRouter(connect(mapStateToProps, { createProfile })(CreateProfile))
