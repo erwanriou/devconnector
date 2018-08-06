@@ -29,6 +29,7 @@ class CreateProfile extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleQueryInput = this.handleQueryInput.bind(this)
   }
 
 
@@ -46,18 +47,25 @@ class CreateProfile extends React.Component {
     // )
   }
 
+  handleQueryInput(e) {
+    e.preventDefault()
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+  
   render() {
-    const { errors, company } = this.state
+    const { errors, handle, } = this.state
     return (
       <div className="createprofile container">
         <h1>Create your Profile</h1>
         <h2>Let's get some informations to make your profile stand out!</h2>
         <form onSubmit={this.handleSubmit}>
           <TextFieldGroup
-            placeholder='Your company'
-            title='Required company'
-            name='company'
-            value={company}
+            placeholder='* Profile handle'
+            title='Required handle'
+            name='handle'
+            value={handle}
             onChange={this.handleQueryInput}
             error={errors.company}
           />
