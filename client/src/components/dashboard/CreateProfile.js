@@ -112,7 +112,7 @@ class CreateProfile extends React.Component {
             icons='fab fa-facebook'
             onChange={this.handleQueryInput}
             error={errors.facebook}
-          />createProfile
+          />
         </div>
         <div className="flexcolumn">
           <InputGroup
@@ -237,11 +237,13 @@ class CreateProfile extends React.Component {
 CreateProfile.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
 }
-createProfile
+
 const mapStateToProps = (state) => ({
   profile: state.profile,
   auth: state.auth,
+  errors: state.errors,
 })
 
 export default withRouter(connect(mapStateToProps, { createProfile })(CreateProfile))

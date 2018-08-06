@@ -15,7 +15,7 @@ class Landing extends React.Component {
     )
     const guestLinks = (
       <Fragment>
-        <Link className='greenbtn' to='/profiles'>Go dashboard</Link>
+        <Link className='greenbtn' to='/dashboard'>Go dashboard</Link>
       </Fragment>
     )
     return (

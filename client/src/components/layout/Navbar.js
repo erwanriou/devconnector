@@ -17,7 +17,11 @@ class NavBar extends React.Component {
     const  { isAuthenticated, user } = this.props.auth
 
     const authLinks = (
-      <div className='usermenu container'>
+      <div className='usermenu'>
+        <Link
+          to='/dashboard'>
+          Dashboard
+        </Link>
         <img
           src={user.avatar}
           alt={user.name}
@@ -33,7 +37,7 @@ class NavBar extends React.Component {
     )
 
     const guestLinks = (
-      <div className='usermenu container'>
+      <div className='usermenu'>
         <Link to='/register'>Sign Up</Link>
         <Link to='/login'>Login</Link>
       </div>
@@ -41,13 +45,15 @@ class NavBar extends React.Component {
 
     return (
       <div className='navbar'>
-        <div className='mainmenu container'>
-          <Link to='/'>DevConnector</Link>
-          <Link to='/profile'>Developers</Link>
+        <div className="container innavbar">
+          <div className='mainmenu'>
+            <Link to='/'>DevConnector</Link>
+            <Link to='/profile'>Developers</Link>
+          </div>
+          { isAuthenticated
+              ? authLinks
+              : guestLinks }
         </div>
-        { isAuthenticated
-            ? authLinks
-            : guestLinks }
       </div>
     )
   }

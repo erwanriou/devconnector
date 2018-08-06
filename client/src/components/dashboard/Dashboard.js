@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { getCurrentProfile } from '../../actions/profileActions'
 import Spinner from '../common/Spinner'
+import ProfileAction from './ProfileAction'
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -20,9 +21,15 @@ class Dashboard extends React.Component {
     profile === null || loading
       ? dashboardContent = <Spinner />
       : Object.keys(profile).length > 0
-        ? dashboardContent = <h4>TODO: DISPLAY PROFILE</h4>
+        ? dashboardContent = (
+          <div className='profilemenu'>
+            <ProfileAction />
+            <h3>Welcome <Link to={`/profile/${profile.handle}`}>{ user.name }</Link></h3>
+          </div>
+        )
         : dashboardContent = (
           <div>
+            <h1>Dashboard</h1>
             <h2>Welcome { user.name }</h2>
             <p>You have not yet setup your profile, please add some info.</p>
             <Link
@@ -30,12 +37,9 @@ class Dashboard extends React.Component {
               className='btn'>Create your Profile</Link>
           </div>
         )
-
-
-
     return (
       <div className="dashboard container">
-        <h1>Dashboard</h1>
+
         {dashboardContent}
       </div>
     )

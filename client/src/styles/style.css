@@ -13,10 +13,15 @@ body {
   display: flex;
   z-index: 1000;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
   background-color: #343a40;
   height: 3rem;
+}
+.innavbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin: 0 auto;
 }
 .navbar a {
   color: white;
@@ -156,12 +161,12 @@ body {
   background-color: #17a2b8;
   color: white;
 }
-.auth form input:focus{
+.auth form input:focus {
   outline:none;
   border: 1px solid #8d8def;
 }
 
-.auth form .invalid{
+.auth form .invalid {
   outline:none;
   border: 2px solid #d63c1b;
 }
@@ -278,14 +283,12 @@ body {
   text-align: center;
   color: #17a2b8;
 }
-
 .dashboard p {
   padding-top: 3rem;
   font-size: 1rem;
   text-align: center;
   font-style: italic;
 }
-
 .dashboard .btn {
   display: flex;
   justify-content: center;
@@ -299,7 +302,26 @@ body {
   background-color: #17a2b8;
   color: white;
 }
-
+.profilemenu {
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.profilemenu h3, .profilemenu .profileAction {
+  font-size: 1rem;
+  padding: 1rem;
+}
+.profileActionLinks {
+  padding: 1rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  background-color: #17a2b8;
+  color: white;
+}
+.profileActionLinks i {
+  margin-left: 1rem;
+}
 /* Footer */
 footer {
   z-index: 10;
