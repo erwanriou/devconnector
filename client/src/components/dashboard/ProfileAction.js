@@ -8,19 +8,19 @@ const ProfileAction = () => {
         className='profileActionLinks'
         to='/edit-profile'>
         Edit Profile
-        <i class="fas fa-user-edit"></i>
+        <i className="fas fa-user-edit"></i>
       </Link>
       <Link
         className='profileActionLinks'
         to='/add-experience'>
         Add Experience
-        <i class="fas fa-briefcase"></i>
+        <i className="fas fa-briefcase"></i>
       </Link>
       <Link
         className='profileActionLinks'
         to='add-education'>
         Add Education
-        <i class="fas fa-graduation-cap"></i>
+        <i className="fas fa-graduation-cap"></i>
       </Link>
     </div>
   )

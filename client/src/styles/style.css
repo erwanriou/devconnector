@@ -322,6 +322,19 @@ body {
 .profileActionLinks i {
   margin-left: 1rem;
 }
+.deletebtn {
+  align-self: flex-end;
+  padding: 1rem;
+  width: 15rem;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+}
+.dashboard .spinner {
+  margin-top: 10rem;
+}
 /* Footer */
 footer {
   z-index: 10;

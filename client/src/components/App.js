@@ -7,6 +7,7 @@ import NavBar from './layout/Navbar'
 import Landing from './layout/Landing'
 import Register from './auth/Register'
 import CreateProfile from './dashboard/CreateProfile'
+import EditProfile from './dashboard/EditProfile'
 import Dashboard from './dashboard/Dashboard'
 import Login from './auth/Login'
 import Footer from './layout/Footer'
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route exact path='/login' component={Login}/>
           <PrivateRoute exact path='/dashboard' component={Dashboard}/>
           <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
+          <PrivateRoute exact path='/edit-profile' component={EditProfile}/>
         </Switch>
         <Footer />
       </Fragment>
