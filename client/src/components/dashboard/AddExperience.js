@@ -26,6 +26,12 @@ class AddExperience extends React.Component {
     this.handleCheckBox = this.handleCheckBox.bind(this)
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+    this.setState({ errors: this.props.errors });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     const expData = {

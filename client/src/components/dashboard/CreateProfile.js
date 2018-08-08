@@ -79,11 +79,8 @@ class CreateProfile extends React.Component {
 
   render() {
     const {
-      errors, handle, status, company,
-      website, skills, githubusername,
-      bio, displaySocialInputs, twitter,
-      linkedin, facebook, instagram, youtube
-    } = this.state
+      errors, handle, status, company, website, skills, githubusername, bio, displaySocialInputs,
+      twitter, linkedin, facebook, instagram, youtube } = this.state
     const options = [
       { label: '* Select Professional Status', value: 0 },
       { label: 'Junior Developer', value: 'Junior Developer' },

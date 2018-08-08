@@ -10,6 +10,7 @@ import CreateProfile from './dashboard/CreateProfile'
 import EditProfile from './dashboard/EditProfile'
 import Dashboard from './dashboard/Dashboard'
 import AddExperience from './dashboard/AddExperience'
+import AddEducation from './dashboard/AddEducation'
 import Login from './auth/Login'
 import Footer from './layout/Footer'
 
@@ -33,6 +34,7 @@ class App extends React.Component {
           <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
           <PrivateRoute exact path='/edit-profile' component={EditProfile}/>
           <PrivateRoute exact path='/add-experience' component={AddExperience}/>
+          <PrivateRoute exact path='/add-education' component={AddEducation}/>
         </Switch>
         <Footer />
       </Fragment>

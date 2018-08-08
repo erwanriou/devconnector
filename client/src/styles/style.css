@@ -7,6 +7,9 @@ body {
   margin: 0 auto;
   max-width: 1200px;
 }
+.margintop {
+  margin-top: 7rem;
+}
 /* NavBar */
 .navbar {
   position: fixed;
