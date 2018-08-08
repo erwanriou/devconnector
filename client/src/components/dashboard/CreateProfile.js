@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { PropTypes } from 'prop-types'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import TextFieldGroup from '../common/TextFieldGroup'
@@ -96,42 +96,38 @@ class CreateProfile extends React.Component {
     ]
     let socialInputs = (
       <Fragment>
-        <div className="flexcolumn">
-          <InputGroup
-            placeholder='Twitter account URL'
-            name='twitter'
-            value={twitter}
-            icons='fab fa-twitter'
-            onChange={this.handleQueryInput}
-            error={errors.twitter}
-          />
-          <InputGroup
-            placeholder='facebook account URL'
-            name='facebook'
-            value={facebook}
-            icons='fab fa-facebook'
-            onChange={this.handleQueryInput}
-            error={errors.facebook}
-          />
-        </div>
-        <div className="flexcolumn">
-          <InputGroup
-            placeholder='Linkedin account URL'
-            name='linkedin'
-            value={linkedin}
-            icons='fab fa-linkedin'
-            onChange={this.handleQueryInput}
-            error={errors.linkedin}
-          />
-          <InputGroup
-            placeholder='YouTube account URL'
-            name='youtube'
-            value={youtube}
-            icons='fab fa-youtube'
-            onChange={this.handleQueryInput}
-            error={errors.youtube}
-          />
-        </div>
+        <InputGroup
+          placeholder='Twitter account URL'
+          name='twitter'
+          value={twitter}
+          icons='fab fa-twitter'
+          onChange={this.handleQueryInput}
+          error={errors.twitter}
+        />
+        <InputGroup
+          placeholder='facebook account URL'
+          name='facebook'
+          value={facebook}
+          icons='fab fa-facebook'
+          onChange={this.handleQueryInput}
+          error={errors.facebook}
+        />
+        <InputGroup
+          placeholder='Linkedin account URL'
+          name='linkedin'
+          value={linkedin}
+          icons='fab fa-linkedin'
+          onChange={this.handleQueryInput}
+          error={errors.linkedin}
+        />
+        <InputGroup
+          placeholder='YouTube account URL'
+          name='youtube'
+          value={youtube}
+          icons='fab fa-youtube'
+          onChange={this.handleQueryInput}
+          error={errors.youtube}
+        />
         <InputGroup
           placeholder='Instagram account'
           name='instagram'
@@ -145,7 +141,15 @@ class CreateProfile extends React.Component {
 
     return (
       <div className="createprofile container">
-        <h1>Create your Profile</h1>
+        <div className="bluelign">
+          <div className="container submenu">
+            <Link to='/dashboard' className="goback">
+              <i className="fas fa-arrow-left"></i>
+              <h4>Go back to Dashboard</h4>
+            </Link>
+            <h1> Create your Profile</h1>
+          </div>
+        </div>
         <h2>Let's get some informations to make your profile stand out!</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="flexcolumn">

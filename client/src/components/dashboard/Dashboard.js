@@ -27,16 +27,23 @@ class Dashboard extends React.Component {
       : Object.keys(profile).length > 0
         ? dashboardContent = (
           <Fragment>
-            <div className='profilemenu'>
-              <ProfileAction />
-              <h3>Welcome <Link to={`/profile/${profile.handle}`}>{ user.name }</Link></h3>
+            <div className='bluelign'>
+              <div className="container profilemenu">
+                <ProfileAction />
+                <h3>Welcome <Link to={`/profile/${profile.handle}`}>{ user.name }</Link></h3>
+              </div>
             </div>
             {/* TODO EXP AND EDUCATION TABS */}
-            <button
-              className='deletebtn'
-              onClick={this.handleDelete.bind(this)}>
-              Delete your profile
-            </button>
+            <div className="container">
+              <div className="delete">
+                <button
+                  className='deletebtn'
+                  onClick={this.handleDelete.bind(this)}>
+                  <i className="fas fa-eraser"></i>
+                  <h4>Delete your profile</h4>
+                </button>
+              </div>
+            </div>
           </Fragment>
         )
         : dashboardContent = (
@@ -50,7 +57,7 @@ class Dashboard extends React.Component {
           </div>
         )
     return (
-      <div className="dashboard container">
+      <div className="dashboard">
         {dashboardContent}
       </div>
     )

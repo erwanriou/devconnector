@@ -1,0 +1,149 @@
+/* BEFORE PROFILE CREATION */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dashboard h1 {
+  padding-top: 7rem;
+  font-size: 5rem;
+  font-weight: 400;
+  text-align: center;
+}
+.dashboard p {
+  padding-top: 3rem;
+  font-size: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+.dashboard .btn {
+  display: flex;
+  justify-content: center;
+  width: 12rem;
+  padding: 1rem;
+  margin: 3rem auto;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #17a2b8;
+  color: white;
+}
+/* AFTER PROFILE CREATION */
+.profilemenu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.profilemenu .profileAction, .profilemenu h3  {
+  font-size: 1rem;
+  padding: 1rem;
+}
+.profilemenu h3 a {
+  color: white;
+  font-weight: 1000;
+}
+.profileActionLinks {
+  margin-right: 2rem;
+  color: white;
+}
+.profileActionLinks:hover {
+  color: black;
+}
+.profileActionLinks i {
+  margin-left: 1rem;
+}
+.delete {
+  display: flex;
+  width: 1200px;
+  justify-content: flex-end;
+}
+.deletebtn {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  width: 15rem;
+  margin-top: 8rem;
+  border-radius: 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.deletebtn:hover {
+  background-color: #cc2020;
+}
+.deletebtn h4 {
+  margin-left: 1rem;
+}
+.dashboard .spinner {
+  margin-top: 10rem;
+}
+.addexperience h1 {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 1000;
+}
+.addexperience .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.goback {
+  display: flex;
+  border-right: solid 1px #bbb7b7;
+  border-left: solid 1px #bbb7b7;
+  z-index: 1000;
+  background-color: #17a2b8;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+}
+.goback:hover {
+  color: black;
+}
+.goback h4 {
+  margin-left: 1rem;
+}
+.bluelign {
+  border-top: solid 1px #bbb7b7;
+  position: fixed;
+  z-index: 500;
+  margin-top: 3rem;
+  background-color: #17a2b8;
+  width: 100%;
+}
+.submenu {
+  display: flex;
+  justify-content: space-between;
+}
+.flexcolumn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.flexlign {
+  display: flex;
+  align-items: center;
+}
+.createprofile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createprofile h1 {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 1000;
+}
+.createprofile h2 {
+  font-style: italic;
+  padding-top: 7rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #17a2b8;
+}
+.createprofile p {
+  padding: 1rem;
+}

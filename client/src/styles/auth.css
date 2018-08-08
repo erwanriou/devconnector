@@ -1,0 +1,12 @@
+.auth h1, .auth h2 {
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth h1 {
+  padding-top: 7rem;
+  font-size: 5rem;
+}

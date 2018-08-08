@@ -1,0 +1,98 @@
+form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem 0 5rem 0;
+}
+form .field {
+  position: relative;
+}
+form .field i {
+  font-size: 1rem;
+  color: #17a2b8;
+}
+input {
+  width: 20rem;
+  padding: 1rem;
+  border: 1px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+form button {
+  width: 22rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: #17a2b8;
+  color: white;
+}
+form select {
+  width: 22rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: .5px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+form textarea {
+  width: 43.5rem;
+  height: 10rem;
+  padding: 1rem;
+  border: .5px solid #cccbcb;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+form textarea::-webkit-input-placeholder {
+  font-family: 'Roboto', sans-serif;
+}
+form input:focus, form select:focus, form textarea:focus {
+  outline:none;
+  border: 1px solid #8d8def;
+}
+form .invalid {
+  outline:none;
+  border: 2px solid #d63c1b;
+}
+form h6 {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+h2 {
+  padding-top: 7rem;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  color: #17a2b8;
+}
+form p {
+  color: red;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+.questionicon {
+  position: absolute;
+  font-size: 1rem;
+  color: #17a2b8;
+  right: 7%;
+  bottom: 40%;
+}
+.popup-content {
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+.card {
+  padding: 1rem;
+}
+.card .header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid gray;
+  color: #17a2b8;
+}
+.card .content {
+  width: 100%;
+  padding-top: 1rem;
+}

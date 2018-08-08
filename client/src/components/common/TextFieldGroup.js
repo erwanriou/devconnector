@@ -31,12 +31,14 @@ const TextFieldGroup = ({
           placeholder={placeholder}
           disabled={disabled}
         />
-        <Popup
-          trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
-          position="right center"
-          on="hover">
-          <Card title={title} />
-        </Popup>
+        { title
+           ? <Popup
+               trigger={<FontAwesome.FaQuestionCircle className='questionicon'/>}
+               position="right center"
+               on="hover">
+               <Card title={title} />
+              </Popup>
+           : null }
       </div>
       { error && (<p>{error}</p>) }
     </Fragment>
