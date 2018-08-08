@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 
 import TextFieldGroup from '../common/TextFieldGroup'
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup'
+import { addExperience } from '../../actions/profileActions'
 
 class AddExperience extends React.Component {
   constructor(props) {
@@ -22,19 +23,31 @@ class AddExperience extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleQueryInput = this.handleQueryInput.bind(this)
+    this.handleCheckBox = this.handleCheckBox.bind(this)
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    // const newExperience = {
-    //   handle: this.state.handle,
-    //   location: this.state.location,
-    //
-    // }
-    // this.props.AddExperience(
-    //   newExperience,
-    //   this.props.history
-    // )
+    const expData = {
+      company: this.state.company,
+      title: this.state.title,
+      location: this.state.location,
+      from: this.state.from,
+      to: this.state.to,
+      current: this.state.current,
+      description: this.state.description,
+    }
+    this.props.addExperience(
+      expData,
+      this.props.history
+    )
+  }
+
+  handleCheckBox(e) {
+    this.setState({
+      disabled: !this.state.disabled,
+      current: !this.state.current,
+    })
   }
 
   handleQueryInput(e) {
@@ -45,9 +58,7 @@ class AddExperience extends React.Component {
   }
 
   render() {
-    const { errors, company, title, location, from, to, disabled } = this.state
-    const { user } = this.props.auth
-    const { profile, loading } = this.props.profile
+    const { errors, company, title, location, description, from, to, disabled, current } = this.state
     return (
       <div className="addexperience">
         <div className="bluelign">
@@ -62,8 +73,7 @@ class AddExperience extends React.Component {
         <div className="content">
           <h2>Add Any job experience you had in the past or current.</h2>
           <form
-            onSubmit={this.handleSubmit}
-            className="container">
+            onSubmit={this.handleSubmit}>
             <TextFieldGroup
               placeholder='Company Name'
               title='Required Company'
@@ -88,22 +98,48 @@ class AddExperience extends React.Component {
               onChange={this.handleQueryInput}
               error={errors.location}
             />
-            <h6>From Date</h6>
-            <TextFieldGroup
-              name='from'
-              type='date'
-              value={from}
+            <div className="field">
+              <h6>From Date</h6>
+              <TextFieldGroup
+                name='from'
+                type='date'
+                value={from}
+                onChange={this.handleQueryInput}
+                error={errors.from}
+              />
+            </div>
+            <div className="field">
+              <h6>To Date</h6>
+              <TextFieldGroup
+                name='to'
+                type='date'
+                value={to}
+                onChange={this.handleQueryInput}
+                disabled={disabled ? 'disabled' : '' }
+                error={errors.to}
+              />
+            </div>
+            <div className='checkcontainer'>
+              <label htmlFor="current">
+                Current Job
+              </label>
+              <input
+                className='checkbox'
+                type="checkbox"
+                name='current'
+                id='current'
+                value={current}
+                checked={current}
+                onChange={this.handleCheckBox}
+              />
+            </div>
+            <TextAreaFieldGroup
+              placeholder='Write your Job Description'
+              title='Required description'
+              name='description'
+              value={description}
               onChange={this.handleQueryInput}
-              error={errors.from}
-            />
-            <h6>To Date</h6>
-            <TextFieldGroup
-              name='from'
-              type='date'
-              value={from}
-              onChange={this.handleQueryInput}
-              disabled={disabled ? 'disabled' : '' }
-              error={errors.from}
+              error={errors.description}
             />
             <button
               type='submit'
@@ -112,22 +148,20 @@ class AddExperience extends React.Component {
             </button>
           </form>
         </div>
-
       </div>
     )
   }
 }
 
 AddExperience.propTypes = {
-  auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
+  addExperience: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
   profile: state.profile,
-  auth: state.auth,
   errors: state.errors,
 })
 
-export default withRouter(connect(mapStateToProps)(AddExperience))
+export default withRouter(connect(mapStateToProps, {addExperience})(AddExperience))

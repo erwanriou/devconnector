@@ -28,6 +28,10 @@ form button {
   margin: 1rem;
   background-color: #17a2b8;
   color: white;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: #14515a;
 }
 form select {
   width: 22rem;
@@ -48,7 +52,7 @@ form textarea {
 form textarea::-webkit-input-placeholder {
   font-family: 'Roboto', sans-serif;
 }
-form input:focus, form select:focus, form textarea:focus {
+form input:focus, form select:focus, form textarea:focus, form button:focus {
   outline:none;
   border: 1px solid #8d8def;
 }
@@ -72,6 +76,23 @@ form p {
   color: red;
   font-size: 1rem;
   padding: 0.5rem 1rem;
+}
+form .checkcontainer {
+  align-self: center;
+  padding: 1rem;
+}
+form .checkbox {
+  width: 2rem;
+}
+form label {
+  font-size: 1rem;
+  text-align: left;
+}
+.flexcolumn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .questionicon {
   position: absolute;

@@ -30,6 +30,11 @@
   color: white;
 }
 /* AFTER PROFILE CREATION */
+.createprofile h1, .addexperience h1 {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 1000;
+}
 .profilemenu {
   width: 100%;
   display: flex;
@@ -79,11 +84,6 @@
 .dashboard .spinner {
   margin-top: 10rem;
 }
-.addexperience h1 {
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 1000;
-}
 .addexperience .content {
   display: flex;
   flex-direction: column;
@@ -117,11 +117,6 @@
   display: flex;
   justify-content: space-between;
 }
-.flexcolumn {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 .flexlign {
   display: flex;
   align-items: center;
@@ -131,19 +126,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.createprofile h1 {
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 1000;
-}
-.createprofile h2 {
-  font-style: italic;
-  padding-top: 7rem;
-  font-size: 1.5rem;
-  text-align: center;
-  color: #17a2b8;
-}
-.createprofile p {
-  padding: 1rem;
 }

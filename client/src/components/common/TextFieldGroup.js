@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Popup from 'reactjs-popup'
 import * as FontAwesome from 'react-icons/fa'
 
-import Card from  '../auth/Card'
+import Card from  './Card'
 
 const TextFieldGroup = ({
   name,
