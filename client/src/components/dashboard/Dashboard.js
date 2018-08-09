@@ -7,6 +7,7 @@ import { getCurrentProfile, deleteAccount } from '../../actions/profileActions'
 import Spinner from '../common/Spinner'
 import ProfileAction from './ProfileAction'
 import Experience from './Experience'
+import Education from './Education'
 
 class Dashboard extends React.Component {
   componentDidMount() {
@@ -36,6 +37,7 @@ class Dashboard extends React.Component {
             </div>
             <div className="container margintop">
               <Experience experience={profile.experience}/>
+              <Education education={profile.education}/>
               <div className="delete">
                 <button
                   className='deletebtn'
