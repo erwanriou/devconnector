@@ -48,7 +48,7 @@ class NavBar extends React.Component {
         <div className="container innavbar">
           <div className='mainmenu'>
             <Link to='/'>DevConnector</Link>
-            <Link to='/profile'>Developers</Link>
+            <Link to='/profiles'>Developers</Link>
           </div>
           { isAuthenticated
               ? authLinks
