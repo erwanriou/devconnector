@@ -12,6 +12,7 @@ import Dashboard from './dashboard/Dashboard'
 import AddExperience from './dashboard/AddExperience'
 import AddEducation from './dashboard/AddEducation'
 import Profiles from './profiles/Profiles'
+import Profile from './profiles/Profile'
 import Login from './auth/Login'
 import Footer from './layout/Footer'
 
@@ -28,17 +29,18 @@ class App extends React.Component {
     return (
       <Fragment>
         <NavBar />
-        <Switch>
-          <Route exact path='/' component={Landing}/>
-          <Route exact path='/register' component={Register}/>
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/profiles' component={Profiles}/>
-          <PrivateRoute exact path='/dashboard' component={Dashboard}/>
-          <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
-          <PrivateRoute exact path='/edit-profile' component={EditProfile}/>
-          <PrivateRoute exact path='/add-experience' component={AddExperience}/>
-          <PrivateRoute exact path='/add-education' component={AddEducation}/>
-        </Switch>
+          <Switch>
+            <Route exact path='/' component={Landing}/>
+            <Route exact path='/register' component={Register}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/profiles' component={Profiles}/>
+            <Route exact path='/profiles/:handle' component={Profile}/>
+            <PrivateRoute exact path='/dashboard' component={Dashboard}/>
+            <PrivateRoute exact path='/create-profile' component={CreateProfile}/>
+            <PrivateRoute exact path='/edit-profile' component={EditProfile}/>
+            <PrivateRoute exact path='/add-experience' component={AddExperience}/>
+            <PrivateRoute exact path='/add-education' component={AddEducation}/>
+          </Switch>
         <Footer />
       </Fragment>
     )

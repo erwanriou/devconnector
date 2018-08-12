@@ -117,10 +117,8 @@ class EditProfile extends React.Component {
 
   render() {
     const {
-      errors, handle, status, company,
-      website, skills, githubusername,
-      bio, displaySocialInputs, twitter,
-      linkedin, facebook, instagram, youtube
+      errors, handle, status, company, location, website, skills, githubusername,
+      bio, displaySocialInputs, twitter, linkedin, facebook, instagram, youtube
     } = this.state
     const options = [
       { label: '* Select Professional Status', value: 0 },
@@ -242,6 +240,16 @@ class EditProfile extends React.Component {
               value={githubusername}
               onChange={this.handleQueryInput}
               error={errors.githubusername}
+            />
+          </div>
+          <div className="flexcolumn">
+            <TextFieldGroup
+              placeholder='Location'
+              title='Required Location'
+              name='location'
+              value={location}
+              onChange={this.handleQueryInput}
+              error={errors.location}
             />
           </div>
           <div className="flexcolumn">

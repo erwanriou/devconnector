@@ -6,10 +6,6 @@ export default () => {
       <img
         alt="Loading"
         src={spinner}
-        style={{
-          width: '200px',
-          display: 'block'
-        }}
       />
     </div>
   )

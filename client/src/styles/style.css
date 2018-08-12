@@ -10,6 +10,10 @@ body {
 .margintop {
   margin-top: 7rem;
 }
+.spinner img {
+  display: 'block';
+  width: 50px;
+}
 /* NavBar */
 .navbar {
   position: fixed;
@@ -81,6 +85,7 @@ body {
   cursor: pointer;
   background-color: #dcdcdc;
   font-size: 1rem;
+  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
 }
 .greenbtn {
   background-color: #17a2b8;
@@ -88,9 +93,41 @@ body {
 }
 .greenbtn:hover {
   background-color: #138496;
+  box-shadow: 1px 2px 20px 0 rgba(46,61,73,.2);
 }
 .whitebtn:hover {
   background-color: #c1c1c1;
+  box-shadow: 1px 2px 20px 0 rgba(46,61,73,.2);
+}
+/* Profile and Dashbord submenu items*/
+.goback {
+  display: flex;
+  border-right: solid 1px #bbb7b7;
+  border-left: solid 1px #bbb7b7;
+  z-index: 1000;
+  background-color: #17a2b8;
+  padding: 1rem;
+  color: white;
+  font-size: 1rem;
+}
+.goback:hover {
+  color: black;
+}
+.goback h4 {
+  margin-left: 1rem;
+}
+.bluelign {
+  border-top: solid 1px #bbb7b7;
+  border-bottom: solid 1px #c5c5c5;
+  position: fixed;
+  z-index: 500;
+  margin-top: 3rem;
+  background-color: #17a2b8;
+  width: 100%;
+}
+.submenu {
+  display: flex;
+  justify-content: space-between;
 }
 /* Footer */
 footer {

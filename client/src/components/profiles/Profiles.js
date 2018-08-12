@@ -28,7 +28,7 @@ class Profiles extends React.Component {
         : profileItems = <h4>No profiles found...</h4>
 
     return(
-      <div className='profile'>
+      <div className='profiles'>
         <div className="container">
           <h2>Developer profiles</h2>
           <h3>Browse and connect with developers</h3>

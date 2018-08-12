@@ -22,6 +22,7 @@ class ProfileItem extends React.Component {
           <div className="text">
             <p
               className='company'>
+              Company:{' '}
               { isEmpty(profile.company)
                   ? null
                   : <span>{profile.company}</span> }
@@ -37,7 +38,7 @@ class ProfileItem extends React.Component {
         </div>
         <div className="button">
           <p className='link'>Go to profile</p>
-          <i class="fas fa-arrow-right"></i>
+          <i className="fas fa-arrow-right"></i>
         </div>
       </Link>
     )
