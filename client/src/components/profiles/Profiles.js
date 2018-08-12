@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import Spinner from '../common/Spinner'
 import { getProfiles } from '../../actions/profileActions'
+import ProfileItem from './ProfileItem'
 
 class Profiles extends React.Component {
 
@@ -20,13 +20,18 @@ class Profiles extends React.Component {
       ? profileItems = <Spinner />
       : profiles.length > 0
         ? profileItems = profiles.map(profile => (
-          profile.handle
+          <ProfileItem
+            key={profile._id}
+            profile={profile}
+          />
         ))
         : profileItems = <h4>No profiles found...</h4>
 
     return(
       <div className='profile'>
         <div className="container">
+          <h2>Developer profiles</h2>
+          <h3>Browse and connect with developers</h3>
           {profileItems}
         </div>
       </div>

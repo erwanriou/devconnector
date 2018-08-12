@@ -20,6 +20,7 @@ import '../styles/style.css'
 import '../styles/auth.css'
 import '../styles/form.css'
 import '../styles/dashboard.css'
+import '../styles/profile.css'
 
 class App extends React.Component {
 

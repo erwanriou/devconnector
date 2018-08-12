@@ -1,0 +1,78 @@
+.profile {
+  margin-bottom: 5rem;
+}
+.profile h3 {
+  font-size: 1rem;
+  text-align: center;
+}
+.profileItem {
+  position: relative;
+  display: flex;
+  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  margin: 2rem 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 10rem;
+  transition: box-shadow 0.2s ease;
+  color: black;
+}
+.profileItem:hover {
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
+}
+.profileItem .image img {
+  height: 10rem;
+  width: 10rem;
+}
+.profileItem .title {
+  display: flex;
+  align-items: baseline;
+}
+.profileItem .title h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+.profileItem .title h5 {
+  font-size: 1rem;
+  color: #17a2b8;
+  font-style: italic;
+}
+.profileItem p {
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+.profileItem .company {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.profileItem .skills {
+  margin: 1rem 0;
+}
+.profileItem .skills span {
+  background-color: #17a2b8;
+  color: white;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0.5rem;
+}
+.profileItem .bio {
+  font-style: italic;
+}
+.profileItem .button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 0;
+  background-color: #17a2b8;
+  height: 10rem;
+}
+.profileItem .button .link {
+  padding: 1rem;
+  font-size: 1rem;
+  color: white;
+}
+.profileItem .button  i {
+  font-size: 1rem;
+  margin-right: 2rem;
+  color: #094c56;
+}

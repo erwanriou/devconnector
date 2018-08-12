@@ -32,7 +32,7 @@ class Dashboard extends React.Component {
             <div className='bluelign'>
               <div className="container profilemenu">
                 <ProfileAction />
-                <h3>Welcome <Link to={`/profile/${profile.handle}`}>{ user.name }</Link></h3>
+                <h3>Welcome <Link to={`/profiles/${profile.handle}`}>{ user.name }</Link></h3>
               </div>
             </div>
             <div className="container margintop">
