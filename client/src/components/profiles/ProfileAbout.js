@@ -12,7 +12,7 @@ class ProfileAbout extends React.Component {
     const bio = profile.bio
       .trim()
       .split('.')
-      .map(paragraph => <p>{paragraph}</p>)
+      .map((paragraph, index) => <p key={index}>{paragraph}</p>)
     const skills = profile.skills.map((skill, index) => (
       <div
         className='skill'

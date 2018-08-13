@@ -140,7 +140,7 @@
 }
 /* INDIVIDUAL PROFILE ABOUT */
 .profileabout .content {
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 .profileabout .row {
   display: flex;
@@ -189,4 +189,44 @@
 }
 .profileabout .skill h4 {
   margin-left: 1rem;
+}
+/* INDIVIDUAL PROFILE CREDENTIALS */
+.profilecreds .content {
+  display: flex;
+}
+.profilecreds h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-style: italic;
+  color: #094c56;
+}
+.profilecreds h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #094c56;
+  padding: 1rem;
+}
+.profilecreds strong {
+  font-weight: bold;
+}
+.profilecreds .experiences, .profilecreds .educations {
+  width: 50%;
+}
+.profilecreds .experience, .profilecreds .education {
+  border: 1px solid #d7dae2;
+  background-color: #f3f3f3;
+  margin: 2rem 1rem;
+  padding: 1rem;
+}
+.profilecreds .date {
+  font-size: 1rem;
+  font-style: italic;
+  padding: 0 1rem;
+}
+.profilecreds .position, .profilecreds .location, .profilecreds .description {
+  font-size: 1rem;
+  padding: 1rem 1rem 0 1rem;
+}
+.profilecreds .desc {
+  margin: 0.5rem 0;
 }

@@ -26,7 +26,10 @@ class Profile extends React.Component {
         <Fragment>
           <ProfileHeader profile={profile}/>
           <ProfileAbout profile={profile}/>
-          <ProfileCreds />
+          <ProfileCreds
+            education={profile.education}
+            experience={profile.experience}
+          />
           <ProfileGithub />
         </Fragment>
       )
