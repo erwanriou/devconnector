@@ -24,20 +24,21 @@ class Experience extends React.Component {
               : (<Moment format='YYYY.MM.DD'>{exp.to}</Moment>)
             }
           </td>
-          <td><button
-            onClick={this.handleDelete.bind(this, exp._id)}>Delete</button></td>
+          <td onClick={this.handleDelete.bind(this, exp._id)}>
+            <span>Delete</span>
+          </td>
         </tr>
       ))
     return (
       <Fragment>
-        <h4>Experience Credentials</h4>
+        <h5>Experience Credentials</h5>
         <table>
           <thead>
             <tr>
               <td>Company</td>
               <td>Title</td>
               <td>Years</td>
-              <td></td>
+              <td>X</td>
             </tr>
           </thead>
           <tbody>

@@ -11,7 +11,6 @@ class Profiles extends React.Component {
   componentDidMount() {
     this.props.getProfiles()
   }
-
   render() {
     const { profiles, loading } = this.props.profile
 

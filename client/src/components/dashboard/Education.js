@@ -24,20 +24,21 @@ class Education extends React.Component {
               : (<Moment format='YYYY.MM.DD'>{edu.to}</Moment>)
             }
           </td>
-          <td><button
-            onClick={this.handleDelete.bind(this, edu._id)}>Delete</button></td>
+          <td onClick={this.handleDelete.bind(this, edu._id)}>
+            <span>Delete</span>
+          </td>
         </tr>
       ))
     return (
       <Fragment>
-        <h4>Education Credentials</h4>
+        <h5>Education Credentials</h5>
         <table>
           <thead>
             <tr>
               <td>School</td>
               <td>Degree</td>
               <td>Years</td>
-              <td></td>
+              <td>X</td>
             </tr>
           </thead>
           <tbody>

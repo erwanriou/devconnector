@@ -1,6 +1,5 @@
 import React from 'react'
 import Moment from 'react-moment'
-import isEmpty from '../../validation/is-empty'
 
 class ProfileCreds extends React.Component {
 
@@ -25,7 +24,7 @@ class ProfileCreds extends React.Component {
               ? null
               : <span><strong>Location: </strong>{exp.location}</span> }
         </p>
-        <p className='description'>
+        <div className='description'>
           { exp.description === ''
               ? null
               : <span>
@@ -36,7 +35,7 @@ class ProfileCreds extends React.Component {
                       <p className='desc' key={index}>{paragraph}</p>
                   ))}
                 </span> }
-        </p>
+        </div>
       </li>
     ))
     const eduItems = education.map(edu =>(
@@ -58,7 +57,7 @@ class ProfileCreds extends React.Component {
               ? null
               : <span><strong>Field Of Study: </strong>{edu.fieldofstudy}</span> }
         </p>
-        <p className='description'>
+        <div className='description'>
           { edu.description === ''
               ? null
               : <span>
@@ -67,9 +66,9 @@ class ProfileCreds extends React.Component {
                     .split('. ')
                     .map((paragraph, index) => (
                       <p className='desc' key={index}>{paragraph}</p>
-                  ))}
+                    ))}
                 </span> }
-        </p>
+        </div>
       </li>
     ))
     return(

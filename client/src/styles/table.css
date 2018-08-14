@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+  font-size: 1rem;
+  color: white;
+}
+thead {
+  background-color: #17a2b8;
+}
+tbody {
+  background-color: #76c5d2;
+}
+td {
+  border: 1px solid #dcdcdc;
+}
+tr td {
+  width: 25%;
+  text-align: center;
+  padding: 1rem;
+}
+table {
+  background-color: #17a2b8;
+  border: none;
+  color: white;
+  padding: 1rem;
+}
+table span {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+table span:hover {
+  background-color: red;
+}

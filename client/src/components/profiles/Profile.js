@@ -15,7 +15,11 @@ class Profile extends React.Component {
     const { handle } = this.props.match.params
     handle && this.props.getProfileByHandle(handle)
   }
-
+  componentDidUpdate() {
+    this.props.profile.profile === null
+      && !this.props.profile.loading
+      && this.props.history.push('/not-found')
+  }
   render() {
     const { profile, loading } = this.props.profile
     let profileContent
@@ -30,7 +34,10 @@ class Profile extends React.Component {
             education={profile.education}
             experience={profile.experience}
           />
-          <ProfileGithub />
+          { profile.githubusername
+              ? (<ProfileGithub username={profile.githubusername}/>)
+              : null
+          }
         </Fragment>
       )
 

@@ -230,3 +230,52 @@
 .profilecreds .desc {
   margin: 0.5rem 0;
 }
+/* INDIVIDUAL GITHUB API */
+.profilegithub {
+  margin-bottom: 5rem;
+}
+.profilegithub  h1 {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+  font-style: italic;
+  color: #094c56;
+}
+.profilegithub .repo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  border: 1px solid #d7dae2;
+  background-color: #f3f3f3;
+  margin: 2rem 1rem;
+  padding: 1rem;
+}
+.profilegithub .repo .title h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #17a2b8;
+    margin-bottom: 1rem;
+}
+.profilegithub .repo .title p {
+  font-style: italic;
+}
+.profilegithub .repo .count {
+  display: flex;
+  align-items: center;
+}
+.profilegithub .stars, .profilegithub .watch, .profilegithub .fork {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 1rem;
+  color: white;
+}
+.profilegithub .stars {
+  background-color:#17a2b8;
+}
+.profilegithub .watch {
+  background-color: #616161;
+}
+.profilegithub .fork {
+  background-color: #3b6d3b;
+}
