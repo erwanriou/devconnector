@@ -30,7 +30,7 @@ export default function profileReducer(state = initialState, action) {
         ...state,
         profile: null,
       }
-    default :
+    default:
       return state
   }
 }

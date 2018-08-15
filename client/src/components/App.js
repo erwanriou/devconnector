@@ -25,6 +25,7 @@ import '../styles/form.css'
 import '../styles/table.css'
 import '../styles/dashboard.css'
 import '../styles/profile.css'
+import '../styles/post.css'
 
 class App extends React.Component {
 

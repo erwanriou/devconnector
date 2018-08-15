@@ -1,0 +1,85 @@
+/* GENERAL */
+.posts {
+  margin-bottom: 5rem;
+}
+/* ADD POST */
+.addpost form {
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
+  background-color: #f3f3f3;
+  padding: 1rem;
+}
+.addpost .field {
+  padding: 1rem;
+}
+
+/* POST ITEM */
+.postitem {
+  position: relative;
+  display: flex;
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
+  background-color: #f3f3f3;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+.postitem .profile {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+.postitem .profile img {
+  border-radius: 10rem;
+  width: 5rem;
+}
+.postitem .profile .data {
+  padding: 1rem;
+}
+.postitem .profile h4  {
+  font-size: 0.9rem;
+  width: 10rem;
+  padding: 0.5rem 0;
+}
+.postitem .profile h3 {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #17a2b8;
+}
+.postitem .postcontent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+}
+.postitem .postcontent p {
+  font-size: 1rem;
+}
+.postitem .social {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.postitem .social p {
+  margin-left: 1rem;
+}
+.postitem .social a {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #17a2b8;
+  color: white;
+  border-radius: 1rem;
+}
+.postitem .postdelete {
+  position: absolute;
+  top:5px;
+  right: 5px;
+  margin-top: 0.5rem;
+}
+.postitem .postdelete span {
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+}
+.postitem .postdelete span:hover {
+  background-color: #3a686f;
+  color: white;
+}

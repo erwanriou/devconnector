@@ -46,7 +46,7 @@ class AddPost extends React.Component {
   render() {
     const { text, errors } = this.state
     return (
-      <div className='PostForm'>
+      <div className='addpost'>
         <h2>Say Something...</h2>
         <form onSubmit={this.handleSubmit}>
           <TextAreaFieldGroup
