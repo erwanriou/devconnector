@@ -65,7 +65,6 @@ class CreateProfile extends React.Component {
   }
 
   handleQueryInput(e) {
-    e.preventDefault()
     this.setState({
       [e.target.name]: e.target.value
     })

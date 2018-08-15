@@ -29,7 +29,7 @@ class ProfileItem extends React.Component {
             </p>
             <p
               className='skills'>
-              {profile.skills.map( skill =>
+              {profile.skills.slice(0, 5).map( skill =>
                 <span key={skill}>{skill}</span>
               )}
             </p>

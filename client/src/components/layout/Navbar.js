@@ -19,6 +19,10 @@ class NavBar extends React.Component {
     const authLinks = (
       <div className='usermenu'>
         <Link
+          to='/feed'>
+          Post Feed
+        </Link>
+        <Link
           to='/dashboard'>
           Dashboard
         </Link>

@@ -2,6 +2,11 @@ table {
   width: 100%;
   font-size: 1rem;
   color: white;
+  background-color: #17a2b8;
+  border: none;
+  color: white;
+  padding: 1rem;
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
 }
 thead {
   background-color: #17a2b8;
@@ -17,17 +22,13 @@ tr td {
   text-align: center;
   padding: 1rem;
 }
-table {
-  background-color: #17a2b8;
-  border: none;
-  color: white;
-  padding: 1rem;
-}
 table span {
   padding: 0.5rem 2rem;
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
   border-radius: 1rem;
   cursor: pointer;
 }
 table span:hover {
-  background-color: red;
+  background-color: #17a2b8;
+  box-shadow: 1px 2px 10px 0 rgba(46,61,73,.2);
 }
