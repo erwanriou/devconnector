@@ -1,15 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import Moment from 'react-moment'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { deletePost } from '../../actions/postActions'
+import { deletePost, likePost } from '../../actions/postActions'
 
 class PostItem extends React.Component {
+
   handleDeletePost(id) {
     this.props.deletePost(id)
+  }
+
+  handleLikePost(id) {
+    this.props.likePost(id)
+  }
+
+  handleUserLike(likes) {
+    const { auth } = this.props
+    if (likes.filter(like => like.user === auth.user.id).length > 0)
+      return true
+      return false
   }
 
   render() {
@@ -27,8 +38,14 @@ class PostItem extends React.Component {
         <div className="postcontent">
           <p>{post.text}</p>
           <div className="social">
-            <i className="far fa-heart"></i>
-            <p>{post.likes.length} likes</p>
+            <div
+              className="like"
+              onClick={this.handleLikePost.bind(this, post._id)}>
+              { this.handleUserLike(post.likes) === true
+                  ? <i className="fas fa-heart"></i>
+                  : <i className="far fa-heart"></i> }
+              <p>{post.likes.length} likes</p>
+            </div>
             <Link to={`/post/${post._id}`}>Comment</Link>
           </div>
         </div>
@@ -42,7 +59,11 @@ class PostItem extends React.Component {
   }
 }
 
+//fas fa-heart
+
 PostItem.propTypes = {
+  deletePost: PropTypes.func.isRequired,
+  likePost: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 }
@@ -51,4 +72,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 })
 
-export default connect(mapStateToProps, { deletePost })(PostItem)
+export default connect(mapStateToProps, { deletePost, likePost })(PostItem)

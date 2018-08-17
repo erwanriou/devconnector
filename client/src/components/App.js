@@ -17,6 +17,7 @@ import Login from './auth/Login'
 import Footer from './layout/Footer'
 import NotFound from './common/NotFound'
 import Posts from './posts/Posts'
+import Post from './posts/Post'
 
 import '../styles/reset.css'
 import '../styles/style.css'
@@ -46,6 +47,7 @@ class App extends React.Component {
             <PrivateRoute exact path='/add-experience' component={AddExperience}/>
             <PrivateRoute exact path='/add-education' component={AddEducation}/>
             <PrivateRoute exact path='/feed' component={Posts}/>
+            <PrivateRoute exact path='/post/:id' component={Post}/>
           </Switch>
         <Footer />
       </Fragment>

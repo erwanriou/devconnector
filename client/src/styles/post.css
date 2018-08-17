@@ -68,6 +68,12 @@
   color: white;
   border-radius: 1rem;
 }
+.postitem .like {
+  display: flex;
+}
+.postitem .like i {
+  color: #17a2b8;
+}
 .postitem .postdelete {
   position: absolute;
   top:5px;
