@@ -1,5 +1,5 @@
 # hide config files
-/config/keys.js
+/config/keys_dev.js
 # dependencies
 /node_modules
 
