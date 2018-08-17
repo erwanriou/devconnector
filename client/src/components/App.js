@@ -22,11 +22,11 @@ import Post from './posts/Post'
 import '../styles/reset.css'
 import '../styles/style.css'
 import '../styles/auth.css'
-import '../styles/form.css'
 import '../styles/table.css'
 import '../styles/dashboard.css'
 import '../styles/profile.css'
 import '../styles/post.css'
+import '../styles/form.css'
 
 class App extends React.Component {
 

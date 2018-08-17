@@ -186,8 +186,8 @@ class EditProfile extends React.Component {
             <h1>Edit your Profile</h1>
           </div>
         </div>
-        <h2>Make sure your profile is always up to date!</h2>
         <form onSubmit={this.handleSubmit}>
+          <h2>Make sure your profile is always up to date!</h2>
           <div className="flexcolumn">
             <TextFieldGroup
               placeholder='* Profile handle'

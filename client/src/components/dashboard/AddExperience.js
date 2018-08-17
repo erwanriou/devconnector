@@ -77,9 +77,9 @@ class AddExperience extends React.Component {
           </div>
         </div>
         <div className="content">
-          <h2>Add Any job experience you had in the past or current.</h2>
           <form
             onSubmit={this.handleSubmit}>
+            <h2>Add Any job experience you had in the past or current.</h2>
             <TextFieldGroup
               placeholder='Company Name'
               title='Required Company'

@@ -15,6 +15,10 @@
   font-size: 1rem;
   text-align: center;
 }
+/* CREATE PROFILE FORM*/
+.createprofile form, .addexperience form, .addeducation form {
+  padding: 0 0 3rem 0;
+}
 /* PROFILE LIST ITEM */
 .profileItem {
   position: relative;

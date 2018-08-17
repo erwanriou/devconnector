@@ -77,9 +77,9 @@ class AddEducation extends React.Component {
           </div>
         </div>
         <div className="content">
-          <h2>Add Any Education and Study you had in the past or current.</h2>
           <form
             onSubmit={this.handleSubmit}>
+            <h2>Add Any Education and Study you had in the past or current.</h2>
             <TextFieldGroup
               placeholder='School Name'
               title='Required School'

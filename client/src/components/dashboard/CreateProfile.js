@@ -146,8 +146,8 @@ class CreateProfile extends React.Component {
             <h1> Create your Profile</h1>
           </div>
         </div>
-        <h2>Let's get some informations to make your profile stand out!</h2>
         <form onSubmit={this.handleSubmit}>
+          <h2>Let's get some informations to make your profile stand out!</h2>
           <div className="flexcolumn">
             <TextFieldGroup
               placeholder='* Profile handle'
