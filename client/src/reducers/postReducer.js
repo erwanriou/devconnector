@@ -1,4 +1,4 @@
-import { POST_LOADING, GET_POSTS, GET_POST, ADD_POST, LIKE_POST, DELETE_POST } from '../actions/types'
+import { POST_LOADING, GET_POSTS, GET_POST, ADD_POST, LIKE_POST, DELETE_POST, DELETE_COMMENT } from '../actions/types'
 
 const initialState = {
   posts: [],
@@ -50,6 +50,14 @@ export default function postReducer(state = initialState, action) {
       return {
         ...state,
         posts: state.posts.filter(post => post._id !== action.payload)
+      }
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: state.post.comments.filter(comment => comment._id !== action.payload),
+        }
       }
     default:
       return state

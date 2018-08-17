@@ -1,9 +1,18 @@
 import React from 'react'
 import Moment from 'react-moment'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+import { deleteComment } from '../../actions/postActions'
 
 class CommentItem extends React.Component {
+
+  handleDeleteComment(postId, commentId) {
+    this.props.deleteComment(postId, commentId)
+  }
+
   render() {
-    const { comment } = this.props
+    const { comment, postId, auth, showActions } = this.props
     return (
       <div className="commentitem">
         <div className="commentinfo">
@@ -20,10 +29,25 @@ class CommentItem extends React.Component {
         <div className="postcontent">
           <p>{comment.text}</p>
         </div>
+        { comment.user === auth.user.id && showActions && (
+          <div className="commentdelete">
+            <span onClick={this.handleDeleteComment.bind(this, postId, comment._id)}>X</span>
+          </div>)
+        }
       </div>
     )
   }
 }
 
+CommentItem.propTypes = {
+  deleteComment: PropTypes.func.isRequired,
+  comment: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  postId: PropTypes.string.isRequired,
+}
 
-export default CommentItem
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+})
+
+export default connect(mapStateToProps, { deleteComment })(CommentItem)

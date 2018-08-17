@@ -81,6 +81,7 @@
 }
 .postitem .like i {
   color: #17a2b8;
+  cursor: pointer;
 }
 .postitem .postdelete {
   position: absolute;
@@ -128,11 +129,26 @@
   color: white;
   z-index: 200;
   top: 0;
-  right: 0;
+  right: 3rem;
   padding: 0.5rem 1rem;
 }
 .comment .commentinfo p {
   text-align: right;
+}
+.comment .commentdelete {
+  position: absolute;
+  top:5px;
+  right: 5px;
+  margin-top: 0.5rem;
+}
+.comment .commentdelete span {
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+}
+.comment .commentdelete span:hover {
+  background-color: #3a686f;
+  color: white;
 }
 /* POST DETAIL */
 .post .margin {

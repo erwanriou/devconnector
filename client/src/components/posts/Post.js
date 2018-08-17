@@ -28,6 +28,8 @@ class Post extends React.Component {
           <div className="comment">
             {post.comments.map(comment =>
               <CommentItem
+                showActions={true}
+                postId={post._id}
                 key={comment._id}
                 comment={comment}/>
             )}

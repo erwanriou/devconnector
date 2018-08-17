@@ -78,8 +78,11 @@ class PostItem extends React.Component {
               <div className="comment">
                 {post.comments.map(comment =>
                   <CommentItem
+                    postId={post._id}
                     key={comment._id}
-                    comment={comment}/>
+                    comment={comment}
+                    showActions={false}
+                  />
                 )}
               </div>)}
           </Fragment>
